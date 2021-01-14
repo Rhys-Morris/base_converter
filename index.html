@@ -4,36 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <h1 class="header">Base Converter</h1>
     <div class="form">
       <div class="form__pair">
         <label for="number-to-convert" class="form__label"
-          >Number to Convert:
+          >Number to Convert
         </label>
-        <input id="number-to-convert" class="form_input" type="number" />
+        <input id="number-to-convert" class="form__input" type="text" />
       </div>
       <div class="form__pair">
-        <label for="current_base" class="form__label">Current Base: </label>
+        <label for="current_base" class="form__label">Current Base </label>
         <input
           id="current_base"
-          class="form_input"
+          class="form__input"
           type="number"
           min="2"
           max="20"
         />
       </div>
       <div class="form__pair">
-        <label for="converted_base" class="form__label">Current Base: </label>
+        <label for="converted_base" class="form__label"
+          >Base To Convert To
+        </label>
         <input
           id="converted_base"
-          class="form_input"
+          class="form__input"
           type="number"
           min="2"
           max="20"
         />
       </div>
+      <div class="form__pair">
+        <label for="converted_value" class="form__label">Converted Value</label>
+        <div id="converted_value" class="form__answer-box">
+          <span class="form__answer">42</span>
+        </div>
+      </div>
+      <button class="form__submit">Submit</button>
     </div>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>
