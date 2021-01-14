@@ -8,17 +8,17 @@ const answer = document.querySelector(".form__answer");
 
 const convertLettersToNumbers = function (array) {
   return array.map((num) => {
-    if (num == "A") {
+    if (num.toLowerCase() == "a") {
       return (num = 10);
-    } else if (num == "B") {
+    } else if (num.toLowerCase() == "b") {
       return (num = 11);
-    } else if (num == "C") {
+    } else if (num.toLowerCase() == "c") {
       return (num = 12);
-    } else if (num == "D") {
+    } else if (num.toLowerCase() == "d") {
       return (num = 13);
-    } else if (num == "E") {
+    } else if (num.toLowerCase() == "e") {
       return (num = 14);
-    } else if (num == "F") {
+    } else if (num.toLowerCase() == "f") {
       return (num = 15);
     } else {
       return Number(num);
