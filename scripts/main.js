@@ -1,3 +1,9 @@
+// ----- GLOBAL VARIABLES ------
+
+// prettier-ignore
+const validityArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+const answer = document.querySelector(".form__answer");
+
 //  ----- LOGIC FUNCTIONS -----
 
 const convertLettersToNumbers = function (array) {
@@ -65,8 +71,44 @@ const convertFromDecimal = function (number, base) {
 };
 
 const displayAnswer = function (answerValue) {
-  const answer = document.querySelector(".form__answer");
   answer.textContent = answerValue;
+};
+
+// Return boolean
+const checkValidity = function (checkArray, validArray) {
+  let valid = true;
+  checkArray.forEach((value) => {
+    if (!validArray.includes(value.toLowerCase())) {
+      valid = false;
+    }
+  });
+  return valid;
+};
+
+const errorSyntax = function () {
+  answer.style.color = "red";
+  answer.style["font-size"] = "1.5rem";
+  setTimeout(() => {
+    answer.textContent = "";
+    answer.style.color = "black";
+    answer.style["font-size"] = "2rem";
+  }, 5000);
+};
+
+const handleInvalid = function () {
+  answer.textContent =
+    "Invalid number to convert, does not match current base!";
+  errorSyntax();
+};
+
+const handleInvalidBase = function () {
+  answer.textContent = "Invalid base provided!";
+  errorSyntax();
+};
+
+const handleNoInput = function () {
+  answer.textContent = "All fields must be completed!";
+  errorSyntax();
 };
 
 // ----- EVENT LISTENERS -----
@@ -77,6 +119,30 @@ submitButton.addEventListener("click", () => {
   const numberToConvert = document.getElementById("number-to-convert").value;
   const currentBase = document.getElementById("current_base").value;
   const convertBase = document.getElementById("converted_base").value;
+
+  // Check not empty
+  if (!numberToConvert || !currentBase || !convertBase) {
+    handleNoInput();
+    return;
+  }
+
+  // Check validity of base entry
+  if (currentBase < 2 || currentBase > 16) {
+    handleInvalidBase();
+    return;
+  }
+
+  if (convertBase < 2 || convertBase > 16) {
+    handleInvalidBase();
+    return;
+  }
+
+  //   Check validity of number entered
+  const validValues = validityArray.slice(0, currentBase);
+  if (!checkValidity(numberToConvert.split(""), validValues)) {
+    handleInvalid();
+    return;
+  }
 
   const decimal = convertToDecimal(numberToConvert, currentBase);
   const convertedValue = convertFromDecimal(decimal, convertBase);
