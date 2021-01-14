@@ -14,16 +14,6 @@ const convertLettersToNumbers = function (array) {
       return (num = 14);
     } else if (num == "F") {
       return (num = 15);
-    } else if (num == "G") {
-      return (num = 16);
-    } else if (num == "H") {
-      return (num = 17);
-    } else if (num == "I") {
-      return (num = 18);
-    } else if (num == "J") {
-      return (num = 19);
-    } else if (num == "K") {
-      return (num = 20);
     } else {
       return Number(num);
     }
@@ -44,16 +34,6 @@ const convertNumbersToLetters = function (array) {
       return (num = "E");
     } else if (num == 15) {
       return (num = "F");
-    } else if (num == 16) {
-      return (num = "G");
-    } else if (num == 17) {
-      return (num = "H");
-    } else if (num == 18) {
-      return (num = "I");
-    } else if (num == 19) {
-      return (num = "J");
-    } else if (num == 20) {
-      return (num = "K");
     } else {
       return String(num);
     }

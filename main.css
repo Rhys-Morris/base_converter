@@ -54,12 +54,17 @@ body {
 }
 .form__input {
   width: 5rem;
+  outline: none;
   border: 1px solid lightgray;
   border-radius: 0.5rem;
   width: 97%;
   padding: 1rem 0;
   padding-left: 3%;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+}
+.form__input:focus {
+  border: 2px solid navy;
+  border-radius: 0.5rem;
 }
 .form__submit {
   margin-top: 3rem;
@@ -69,8 +74,9 @@ body {
   background-color: #000046;
   color: white;
   padding: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   width: 80%;
+  cursor: pointer;
 }
 .form__submit:hover {
   background-color: green;
